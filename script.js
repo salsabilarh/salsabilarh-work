@@ -1,176 +1,177 @@
-(() => {
-    const ready = (fn) => {
-        if (document.readyState === 'loading') {
-            document.addEventListener('DOMContentLoaded', fn);
-        } else {
-            fn();
-        }
-    };
+// Mobile Menu Toggle
+const menuIcon = document.querySelector('#menu-icon');
+const navbar = document.querySelector('.navbar');
 
-    ready(() => {
-        // === Mobile Navbar Toggle ===
-        const menuIcon = document.querySelector('#menu-icon');
-        const navbar = document.querySelector('.navbar');
+if (menuIcon && navbar) {
+    menuIcon.addEventListener('click', () => {
+        navbar.classList.toggle('active');
+        menuIcon.classList.toggle('bx-x');
+        menuIcon.classList.toggle('bx-menu');
+    });
 
-        if (menuIcon && navbar) {
-            menuIcon.addEventListener('click', () => {
-                // Toggle active class
-                navbar.classList.toggle('active');
-                
-                // Animate menu icon
-                menuIcon.classList.toggle('bx-x');
-                menuIcon.classList.toggle('bx-menu');
-                
-                // Prevent body scroll when menu is open
-                document.body.style.overflow = navbar.classList.contains('active') ? 'hidden' : '';
-            });
-
-            // Close menu when clicking on a link
-            navbar.querySelectorAll('a').forEach(link => {
-                link.addEventListener('click', () => {
-                    navbar.classList.remove('active');
-                    menuIcon.classList.remove('bx-x');
-                    menuIcon.classList.add('bx-menu');
-                    document.body.style.overflow = '';
-                });
-            });
-
-            // Close menu when clicking outside
-            document.addEventListener('click', (event) => {
-                if (!navbar.contains(event.target) && !menuIcon.contains(event.target)) {
-                    navbar.classList.remove('active');
-                    menuIcon.classList.remove('bx-x');
-                    menuIcon.classList.add('bx-menu');
-                    document.body.style.overflow = '';
-                }
-            });
-        }
-
-        // === Modal Functions ===
-        window.openModal = (id) => {
-            const modal = document.getElementById(id);
-            if (modal) {
-                modal.style.display = 'block';
-                document.body.style.overflow = 'hidden';
-            }
-        };
-
-        window.closeModal = (id) => {
-            const modal = document.getElementById(id);
-            if (modal) {
-                modal.style.display = 'none';
-                document.body.style.overflow = '';
-            }
-        };
-
-        // Close modal when clicking outside
-        document.addEventListener('click', (event) => {
-            document.querySelectorAll('.modal').forEach(modal => {
-                if (event.target === modal) {
-                    modal.style.display = 'none';
-                    document.body.style.overflow = '';
-                }
-            });
-        });
-
-        // Close modal with Escape key
-        document.addEventListener('keydown', (event) => {
-            if (event.key === 'Escape') {
-                document.querySelectorAll('.modal').forEach(modal => {
-                    if (modal.style.display === 'block') {
-                        modal.style.display = 'none';
-                        document.body.style.overflow = '';
-                    }
-                });
-            }
-        });
-
-        // === Smooth Scrolling for Anchor Links ===
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                
-                const targetId = this.getAttribute('href');
-                if (targetId === '#') return;
-                
-                const targetElement = document.querySelector(targetId);
-                if (targetElement) {
-                    window.scrollTo({
-                        top: targetElement.offsetTop - 80,
-                        behavior: 'smooth'
-                    });
-                }
-            });
-        });
-
-        // === Active Nav Link on Scroll ===
-        const sections = document.querySelectorAll('section');
-        const navLinks = document.querySelectorAll('.navbar a');
-
-        function updateActiveNavLink() {
-            let current = '';
-            sections.forEach(section => {
-                const sectionTop = section.offsetTop;
-                const sectionHeight = section.clientHeight;
-                if (scrollY >= (sectionTop - 150)) {
-                    current = section.getAttribute('id');
-                }
-            });
-
-            navLinks.forEach(link => {
-                link.classList.remove('active');
-                if (link.getAttribute('href') === `#${current}`) {
-                    link.classList.add('active');
-                }
-            });
-        }
-
-        window.addEventListener('scroll', updateActiveNavLink);
-
-        // === Sticky Header ===
-        const header = document.querySelector('.header');
-        let lastScrollTop = 0;
-
-        window.addEventListener('scroll', () => {
-            const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-            
-            if (scrollTop > 100) {
-                header.style.padding = '1rem 5%';
-                header.style.background = 'rgba(202, 59, 26, 0.98)';
-            } else {
-                header.style.padding = '2rem 5%';
-                header.style.background = 'rgba(202, 59, 26, 0.95)';
-            }
-            
-            // Hide/show header on scroll
-            if (scrollTop > lastScrollTop && scrollTop > 200) {
-                // Scroll down
-                header.style.transform = 'translateY(-100%)';
-            } else {
-                // Scroll up
-                header.style.transform = 'translateY(0)';
-            }
-            
-            lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
-        });
-
-        // === Animate elements on scroll ===
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
-
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('animate');
-                }
-            });
-        }, observerOptions);
-
-        // Observe elements to animate
-        document.querySelectorAll('.skill-card, .project-card, .experience-item, .cert-column').forEach(el => {
-            observer.observe(el);
+    navbar.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', () => {
+            navbar.classList.remove('active');
+            menuIcon.classList.remove('bx-x');
+            menuIcon.classList.add('bx-menu');
         });
     });
-})();
+}
+
+// Smooth scrolling
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function(e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+            target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+    });
+});
+
+// Active nav link on scroll
+const sections = document.querySelectorAll('section');
+const navLinks = document.querySelectorAll('.navbar a');
+
+window.addEventListener('scroll', () => {
+    let current = '';
+    sections.forEach(section => {
+        const sectionTop = section.offsetTop;
+        const sectionHeight = section.clientHeight;
+        if (scrollY >= sectionTop - 200) {
+            current = section.getAttribute('id');
+        }
+    });
+
+    navLinks.forEach(link => {
+        link.classList.remove('active');
+        if (link.getAttribute('href') === `#${current}`) {
+            link.classList.add('active');
+        }
+    });
+});
+
+// Sticky header
+const header = document.querySelector('.header');
+window.addEventListener('scroll', () => {
+    if (window.scrollY > 100) {
+        header.style.padding = '1rem 5%';
+    } else {
+        header.style.padding = '1.5rem 5%';
+    }
+});
+
+// Typing animation
+const dynamicText = document.querySelector('.dynamic-text');
+if (dynamicText) {
+    const roles = ['Full Stack Developer', 'Node.js Developer', 'React.js Developer', 'Problem Solver'];
+    let roleIndex = 0;
+    let charIndex = 0;
+    let isDeleting = false;
+
+    function typeEffect() {
+        const currentRole = roles[roleIndex];
+        if (isDeleting) {
+            dynamicText.textContent = currentRole.substring(0, charIndex - 1);
+            charIndex--;
+        } else {
+            dynamicText.textContent = currentRole.substring(0, charIndex + 1);
+            charIndex++;
+        }
+
+        if (!isDeleting && charIndex === currentRole.length) {
+            isDeleting = true;
+            setTimeout(typeEffect, 2000);
+            return;
+        }
+
+        if (isDeleting && charIndex === 0) {
+            isDeleting = false;
+            roleIndex = (roleIndex + 1) % roles.length;
+        }
+
+        const speed = isDeleting ? 50 : 100;
+        setTimeout(typeEffect, speed);
+    }
+
+    typeEffect();
+}
+
+// Scroll reveal animation
+const observerOptions = {
+    threshold: 0.1,
+    rootMargin: '0px 0px -50px 0px'
+};
+
+const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.style.opacity = '1';
+            entry.target.style.transform = 'translateY(0)';
+        }
+    });
+}, observerOptions);
+
+document.querySelectorAll('.exp-card, .project-showcase-card, .tech-category, .soft-skill-card, .achievement-item, .cert-column, .org-card').forEach(el => {
+    el.style.opacity = '0';
+    el.style.transform = 'translateY(30px)';
+    el.style.transition = 'all 0.6s ease';
+    observer.observe(el);
+});
+
+// Function to scroll to specific project
+window.scrollToProject = function(projectId) {
+    const projectElement = document.getElementById(projectId);
+    if (projectElement) {
+        projectElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        // Add highlight effect
+        projectElement.style.transition = 'all 0.3s';
+        projectElement.style.boxShadow = '0 0 0 3px var(--primary)';
+        setTimeout(() => {
+            projectElement.style.boxShadow = '';
+        }, 2000);
+    }
+};
+
+// Contact Form Handler - Web3Forms
+document.getElementById('contactForm').addEventListener('submit', async function(e) {
+    e.preventDefault();
+    
+    const form = this;
+    const statusDiv = document.getElementById('form-status');
+    const submitBtn = form.querySelector('button[type="submit"]');
+    const originalText = submitBtn.innerHTML;
+    
+    statusDiv.innerHTML = '<span style="color: #ca3b1a;">Sending...</span>';
+    submitBtn.innerHTML = 'Sending... <i class="bx bx-loader-alt bx-spin"></i>';
+    submitBtn.disabled = true;
+    
+    const formData = new FormData(form);
+    
+    try {
+        const response = await fetch('https://api.web3forms.com/submit', {
+            method: 'POST',
+            body: formData
+        });
+        
+        const data = await response.json();
+        
+        if (data.success) {
+            statusDiv.innerHTML = '<span style="color: #2ecc71;">✓ Message sent successfully! I\'ll get back to you soon.</span>';
+            form.reset();
+        } else {
+            statusDiv.innerHTML = '<span style="color: #e74c3c;">✗ Error sending message. Please try again.</span>';
+        }
+    } catch (error) {
+        statusDiv.innerHTML = '<span style="color: #e74c3c;">✗ Network error. Please check your connection.</span>';
+    }
+    
+    submitBtn.innerHTML = originalText;
+    submitBtn.disabled = false;
+    
+    setTimeout(() => { 
+        if (statusDiv.innerHTML.includes('successfully')) {
+            statusDiv.innerHTML = '';
+        }
+    }, 5000);
+});
