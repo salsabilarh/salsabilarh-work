@@ -1,0 +1,28 @@
+{
+  "nav": {
+    "home": "Beranda",
+    "education": "Pendidikan",
+    "techStack": "Teknologi",
+    "projects": "Proyek",
+    "experience": "Pengalaman",
+    "certificates": "Sertifikat",
+    "contact": "Kontak",
+    "getInTouch": "Hubungi Saya"
+  },
+  "hero": {
+    "availability": "Terbuka untuk posisi Fullstack & Backend Developer",
+    "role": "Fullstack Developer · Node.js · Go · React.js",
+    "tagline": "Saya merancang dan mengantarkan sistem production-grade — dari backend API Clean Architecture hingga frontend React.js — dengan 100% test coverage, pipeline CI/CD otomatis, dan standar zero-defect yang terbukti di 2 platform enterprise BUMN serta kemenangan kompetisi nasional.",
+    "viewProjects": "Lihat Proyek →",
+    "getInTouch": "Hubungi Saya",
+    "stats": {
+      "apis": "REST API Dibangun",
+      "coverage": "Test Coverage",
+      "users": "Pengguna Konkuren"
+    }
+  },
+  "theme": {
+    "light": "Terang",
+    "dark": "Gelap"
+  }
+}

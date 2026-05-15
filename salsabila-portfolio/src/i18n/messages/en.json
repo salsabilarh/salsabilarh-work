@@ -1,0 +1,28 @@
+{
+  "nav": {
+    "home": "Home",
+    "education": "Education",
+    "techStack": "Tech Stack",
+    "projects": "Projects",
+    "experience": "Experience",
+    "certificates": "Certificates",
+    "contact": "Contact",
+    "getInTouch": "Get In Touch"
+  },
+  "hero": {
+    "availability": "Open to Fullstack & Backend Developer roles",
+    "role": "Fullstack Developer · Node.js · Go · React.js",
+    "tagline": "I architect and ship production-grade systems — from Clean Architecture backend APIs to React.js frontends — enforcing 100% test coverage, automated CI/CD pipelines, and zero-defect delivery standards proven across 2 BUMN enterprise platforms and a national competition win.",
+    "viewProjects": "View Projects →",
+    "getInTouch": "Get In Touch",
+    "stats": {
+      "apis": "REST APIs Built",
+      "coverage": "Test Coverage",
+      "users": "Concurrent Users"
+    }
+  },
+  "theme": {
+    "light": "Light",
+    "dark": "Dark"
+  }
+}
