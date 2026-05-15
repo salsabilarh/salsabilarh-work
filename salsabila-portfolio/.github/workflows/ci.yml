@@ -1,0 +1,58 @@
+# .github/workflows/ci.yml
+# ═══════════════════════════════════════════════════
+# CI Pipeline — berjalan otomatis setiap:
+# - Push ke branch main atau develop
+# - Pull Request ke branch main
+#
+# Job 'quality' menjalankan 4 checks berurutan.
+# Kalau satu gagal, yang berikutnya tidak jalan.
+# ═══════════════════════════════════════════════════
+
+name: CI
+
+on:
+  push:
+    branches: [main, develop]
+  pull_request:
+    branches: [main]
+
+jobs:
+  quality:
+    name: Code Quality Check
+    runs-on: ubuntu-latest
+
+    steps:
+      # Step 1: Ambil kode dari repo
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      # Step 2: Setup Node.js versi 20
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          # Cache node_modules agar tidak download ulang
+          # setiap kali CI berjalan — menghemat 1-2 menit!
+          cache: npm
+
+      # Step 3: Install dependencies
+      # 'npm ci' lebih strict dari 'npm install' —
+      # dia pakai package-lock.json secara exact
+      - name: Install dependencies
+        run: npm ci
+
+      # Step 4: Cek code style
+      - name: Run ESLint
+        run: npm run lint
+
+      # Step 5: Cek TypeScript types
+      - name: Run TypeScript check
+        run: npx tsc --noEmit
+
+      # Step 6: Pastikan build tidak error
+      - name: Build project
+        run: npm run build
+
+      # Step 7: Jalankan tests (aktifkan di Sprint 2)
+      # - name: Run tests
+      #   run: npm test -- --coverage

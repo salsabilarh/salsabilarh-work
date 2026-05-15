@@ -1,14 +1,9 @@
-// src/app/[locale]/layout.tsx
-// ═══════════════════════════════════════════
-// Layout ini membungkus SEMUA halaman.
-// Di sinilah ThemeProvider dan i18n Provider
-// diinjeksi sebagai global wrapper.
-// ═══════════════════════════════════════════
-
+// src/app/[locale]/layout.tsx — updated
 import { NextIntlClientProvider } from 'next-intl';
 import { getMessages } from 'next-intl/server';
 import { notFound } from 'next/navigation';
 import { locales, type Locale } from '@/i18n/config';
+import { ThemeProvider } from '@/components/providers/ThemeProvider';
 import '../globals.css';
 
 interface LayoutProps {
@@ -19,20 +14,26 @@ interface LayoutProps {
 export default async function LocaleLayout({ children, params }: LayoutProps) {
   const { locale } = await params;
 
-  // Kalau locale tidak valid, tampilkan 404
   if (!locales.includes(locale as Locale)) {
     notFound();
   }
 
-  // Load file terjemahan sesuai locale
   const messages = await getMessages();
 
   return (
-    <html lang={locale} data-theme="dark">
+    <html lang={locale} suppressHydrationWarning>
+      {/*
+        suppressHydrationWarning diperlukan karena
+        next-themes menambahkan data-theme SETELAH
+        server render — React akan komplain tanpa ini.
+        Ini adalah pattern resmi dari next-themes.
+      */}
       <body>
-        <NextIntlClientProvider messages={messages}>
-          {children}
-        </NextIntlClientProvider>
+        <ThemeProvider>
+          <NextIntlClientProvider messages={messages}>
+            {children}
+          </NextIntlClientProvider>
+        </ThemeProvider>
       </body>
     </html>
   );
