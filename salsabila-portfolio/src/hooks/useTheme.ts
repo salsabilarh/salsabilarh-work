@@ -18,7 +18,10 @@ export function useTheme() {
   // Server tidak tahu theme preference user,
   // jadi tunggu sampai komponen mount di browser
   const [mounted, setMounted] = useState(false);
-  useEffect(() => setMounted(true), []);
+  useEffect(() => {
+    // eslint-disable-next-line react-hooks/set-state-in-effect
+    setMounted(true);
+  }, []);
 
   const isDark = resolvedTheme === 'dark';
 
