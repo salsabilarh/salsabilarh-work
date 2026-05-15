@@ -1,0 +1,62 @@
+/* ═══════════════════════════════════════════════════
+   dark.css — Design System Layer 2: Semantic Tokens
+   
+   CARA KERJA:
+   - [data-theme="dark"]  → set nilai untuk mode gelap
+   - [data-theme="light"] → set nilai untuk mode terang
+   - Komponen selalu pakai: var(--bg-base), var(--text-primary)
+     dll — BUKAN nilai hex langsung
+   
+   Kenapa begini? Kalau besok mau ganti warna dark mode,
+   cukup edit file ini. Komponen tidak perlu disentuh!
+   ═══════════════════════════════════════════════════ */
+
+/* ── Dark Mode Tokens ──────────────────────────────── */
+[data-theme="dark"] {
+  --bg-base:        #080d1a;
+  --bg-surface:     #0d1424;
+  --bg-card:        #111827;
+
+  --border-subtle:  rgba(59, 130, 246, 0.12);
+  --border-strong:  rgba(59, 130, 246, 0.35);
+  --border-card:    rgba(59, 130, 246, 0.15);
+
+  --text-primary:   #f0f4ff;
+  --text-secondary: #8b9cbf;
+  --text-muted:     #4a5a7a;
+  --text-link:      #60a5fa;
+
+  --nav-bg:         rgba(8, 13, 26, 0.88);
+  --grid-line:      rgba(59, 130, 246, 0.04);
+  --glow:           rgba(59, 130, 246, 0.15);
+
+  --badge-bg:       rgba(59, 130, 246, 0.10);
+  --badge-border:   rgba(59, 130, 246, 0.25);
+  --tag-bg:         rgba(6, 182, 212, 0.08);
+  --tag-border:     rgba(6, 182, 212, 0.20);
+}
+
+/* ── Light Mode Tokens ─────────────────────────────── */
+[data-theme="light"] {
+  --bg-base:        #f8faff;
+  --bg-surface:     #eef2fc;
+  --bg-card:        #ffffff;
+
+  --border-subtle:  rgba(30, 58, 138, 0.10);
+  --border-strong:  rgba(30, 58, 138, 0.30);
+  --border-card:    rgba(30, 58, 138, 0.12);
+
+  --text-primary:   #0f172a;
+  --text-secondary: #475569;
+  --text-muted:     #94a3b8;
+  --text-link:      #2563eb;
+
+  --nav-bg:         rgba(248, 250, 255, 0.92);
+  --grid-line:      rgba(30, 58, 138, 0.03);
+  --glow:           rgba(59, 130, 246, 0.08);
+
+  --badge-bg:       rgba(37, 99, 235, 0.07);
+  --badge-border:   rgba(37, 99, 235, 0.20);
+  --tag-bg:         rgba(8, 145, 178, 0.06);
+  --tag-border:     rgba(8, 145, 178, 0.18);
+}

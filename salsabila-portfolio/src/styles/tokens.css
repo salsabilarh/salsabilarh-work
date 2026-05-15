@@ -1,0 +1,57 @@
+/* ═══════════════════════════════════════════════════
+   tokens.css — Design System Layer 1: Brand Palette
+   
+   ATURAN PENTING:
+   - File ini HANYA berisi nilai statis (tidak berubah
+     antara dark/light mode)
+   - Komponen TIDAK boleh pakai nilai dari sini langsung
+   - Komponen harus pakai semantic tokens dari dark.css
+   ═══════════════════════════════════════════════════ */
+
+:root {
+  /* ── Typography ─────────────────────────────────── */
+  --font-display: 'DM Mono', monospace;
+  --font-body:    'Plus Jakarta Sans', sans-serif;
+
+  /* ── Brand Palette (jangan pakai langsung!) ─────── */
+  --color-blue:     #3b82f6;
+  --color-cyan:     #06b6d4;
+  --color-success:  #10b981;
+  --color-warning:  #f59e0b;
+  --color-danger:   #ef4444;
+  --color-purple:   #8b5cf6;
+  --color-pink:     #ec4899;
+
+  /* ── Gradient ───────────────────────────────────── */
+  --gradient-brand: linear-gradient(135deg, var(--color-blue), var(--color-cyan));
+
+  /* ── 8-point Spacing Scale ──────────────────────── */
+  /* Kenapa 8-point? Karena kelipatan 8 selalu terlihat
+     harmonis di semua ukuran layar. Standar industri! */
+  --sp-1:  8px;
+  --sp-2:  16px;
+  --sp-3:  24px;
+  --sp-4:  32px;
+  --sp-5:  40px;
+  --sp-6:  48px;
+  --sp-8:  64px;
+  --sp-10: 80px;
+  --sp-12: 96px;
+
+  /* ── Border Radius Scale ────────────────────────── */
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 16px;
+
+  /* ── Easing & Duration ──────────────────────────── */
+  /* Satu easing function untuk semua animasi =
+     motion terasa "kohesif", bukan acak-acakan */
+  --ease-standard:     cubic-bezier(0.4, 0, 0.2, 1);
+  --duration-fast:     0.2s;
+  --duration-normal:   0.4s;
+  --transition-fast:   var(--duration-fast)   var(--ease-standard);
+  --transition-normal: var(--duration-normal) var(--ease-standard);
+
+  /* ── Layout ─────────────────────────────────────── */
+  --container-max: 1160px;
+}

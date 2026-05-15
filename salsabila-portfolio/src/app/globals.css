@@ -1,0 +1,21 @@
+/* ═══════════════════════════════════════════════════
+   globals.css — Entry point untuk semua global styles
+   
+   Urutan import PENTING:
+   1. Font import (Google Fonts)
+   2. Tokens (nilai statis)
+   3. Dark/light semantic tokens
+   4. Typography & reset
+   5. Animations
+   ═══════════════════════════════════════════════════ */
+
+@import url('https://fonts.googleapis.com/css2?family=DM+Mono:ital,wght@0,300;0,400;0,500;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap');
+
+@import '../styles/tokens.css';
+@import '../styles/dark.css';
+@import '../styles/typography.css';
+@import '../styles/animations.css';
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;

@@ -1,0 +1,61 @@
+/* ═══════════════════════════════════════════════════
+   animations.css — Reusable Keyframe Animations
+   
+   Semua @keyframes dikumpulkan di satu tempat agar
+   tidak ada duplikasi di komponen-komponen.
+   ═══════════════════════════════════════════════════ */
+
+/* Fade up — untuk section entrance */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* Pulsing dot — untuk logo navbar */
+@keyframes pulseDot {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50%       { opacity: 0.5; transform: scale(0.7); }
+}
+
+/* Blinking cursor — untuk terminal */
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0; }
+}
+
+/* ── Scroll-reveal utility classes ─────────────────── */
+/* Dipakai langsung di JSX: className="u-reveal" */
+.u-reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.55s var(--ease-standard),
+              transform 0.55s var(--ease-standard);
+}
+.u-reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Slide from left — untuk timeline items */
+.u-reveal-left {
+  opacity: 0;
+  transform: translateX(-16px);
+  transition: opacity 0.5s var(--ease-standard),
+              transform 0.5s var(--ease-standard);
+}
+.u-reveal-left.is-visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* ── Respect user's motion preference ───────────────── */
+/* Aksesibilitas! User yang mual dengan animasi
+   bisa matikan di system settings mereka */
+@media (prefers-reduced-motion: reduce) {
+  .u-reveal,
+  .u-reveal-left {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
