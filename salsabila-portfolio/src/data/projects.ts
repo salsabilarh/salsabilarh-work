@@ -57,8 +57,27 @@ export const projects: Project[] = [
       impactId: 'Meraih Perfect Score 5/5 dan 100% test coverage di 53 file — nol jalur kode yang tidak diuji. Mengeliminasi 100% langkah deployment manual via GitHub Actions CI/CD.',
     },
   },
-  // ── Tambahkan 8 project lainnya dengan format yang sama ──
-  // darustrack-api, openmusic-api, e-procurement,
-  // todolist-api, lecturer-api, bookshelf-api,
-  // bookshelf-app, article-web
+  {
+    id: 'darustrack-api',
+    category: ['backend'],
+    award: '🎓 S1 Capstone Project',
+    titleEn: 'DarusTrack API',
+    titleId: 'DarusTrack API',
+    orgEn: 'SDIT Darussalam 01 Batam · Aug 2024 – Jun 2025',
+    orgId: 'SDIT Darussalam 01 Batam · Agu 2024 – Jun 2025',
+    descEn: 'Real-time academic monitoring backend with 60+ endpoints for 4 user roles, LRU cache on auth middleware, 30+ composite DB indexes, Redis-backed rate limiting with MemoryStore fallback, and validated zero critical failures under 300+ concurrent users via Apache JMeter.',
+    descId: 'Backend monitoring akademik real-time dengan 60+ endpoint untuk 4 peran pengguna, LRU cache pada middleware autentikasi, 30+ indeks DB komposit, rate limiting berbasis Redis dengan MemoryStore fallback, dan divalidasi nol kegagalan kritis di bawah 300+ pengguna konkuren via Apache JMeter.',
+    highlights: ['✓ 300+ Concurrent Users', '✓ 60+ Endpoints', '✓ 24/7 Production'],
+    stack: ['Node.js', 'Express.js', 'MySQL', 'Sequelize ORM', 'Redis', 'JWT/RBAC', 'Apache JMeter', 'Railway'],
+    github: 'https://github.com/salsabilarh',
+    live: '',
+    psi: {
+      problemEn: 'Academic reports were only available every semester — too late for meaningful parental intervention.',
+      problemId: 'Laporan akademik hanya tersedia setiap semester — terlambat untuk intervensi orang tua yang bermakna.',
+      solutionEn: 'Layered Architecture with LRU cache on auth middleware (max 1,000 entries, 5s TTL), 30+ composite indexes, Redis-backed rate limiting with graceful MemoryStore fallback, 18 versioned migrations.',
+      solutionId: 'Layered Architecture dengan LRU cache pada middleware autentikasi, 30+ indeks komposit, rate limiting berbasis Redis dengan MemoryStore fallback, 18 migration terversi.',
+      impactEn: 'Accomplished zero critical failures under 300+ concurrent users across load, stress, and spike testing via Apache JMeter. 100% pass rate across 100+ Postman black-box scenarios.',
+      impactId: 'Mencapai nol kegagalan kritis di bawah 300+ pengguna konkuren via Apache JMeter. 100% tingkat kelulusan pada 100+ skenario black-box test Postman.',
+    },
+  },
 ];
