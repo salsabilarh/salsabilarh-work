@@ -1,0 +1,71 @@
+# ─────────────────────────────────────────
+# .gitignore — salsabila-portfolio
+# Prinsip: jangan commit yang bisa di-generate
+# ulang, dan JANGAN PERNAH commit secrets.
+# ─────────────────────────────────────────
+
+# ── Dependencies ──────────────────────────
+node_modules/
+.pnp
+.pnp.js
+
+# ── Next.js build output ──────────────────
+# File ini di-generate ulang setiap `npm run build`
+# Tidak perlu disimpan di Git — buang-buang space!
+.next/
+out/
+build/
+dist/
+
+# ── Environment variables ─────────────────
+# INI YANG PALING PENTING!
+# .env.local berisi API keys, password database, dll.
+# Kalau ini ikut ke-commit, semua orang bisa lihat!
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# .env.example BOLEH di-commit — isinya cuma
+# template kosong sebagai dokumentasi
+!.env.example
+
+# ── Vercel ────────────────────────────────
+.vercel
+
+# ── Testing ───────────────────────────────
+coverage/
+.nyc_output/
+
+# ── TypeScript ────────────────────────────
+*.tsbuildinfo
+next-env.d.ts
+
+# ── OS generated ──────────────────────────
+# File sampah dari Mac dan Windows
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+Thumbs.db
+ehthumbs.db
+
+# ── Logs ──────────────────────────────────
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# ── Editor ────────────────────────────────
+# Settings personal VS Code tidak perlu dishare
+.vscode/settings.json
+.vscode/launch.json
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
