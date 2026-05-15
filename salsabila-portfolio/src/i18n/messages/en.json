@@ -21,6 +21,26 @@
       "users": "Concurrent Users"
     }
   },
+  "education": {
+    "label": "Academic Background",
+    "title": "Education",
+    "degreeLabel": "Degree",
+    "degreeName": "Bachelor of Computer Engineering",
+    "thesis": "Thesis: \"Academic Progress Monitoring System at SDIT Darussalam 01 Batam: Backend Development\". Coursework: Switching & Routing, Network Security, Database Systems, Real-Time OS, Software Engineering, OOP."
+  },
+  "techStack": {
+    "label": "Technical Proficiency",
+    "title": "Technologies I Work With",
+    "desc": "Production-proven across 12+ projects. I choose tools that deliver reliability, performance, and maintainability at scale.",
+    "categories": {
+      "backend": "Backend & API",
+      "frontend": "Frontend",
+      "database": "Databases",
+      "security": "Security & Auth",
+      "testing": "Testing & QA",
+      "devops": "DevOps & Cloud"
+    }
+  },
   "theme": {
     "light": "Light",
     "dark": "Dark"

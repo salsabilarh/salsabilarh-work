@@ -72,14 +72,14 @@ export function HeroSection() {
 
             {/* CTAs */}
             <div className="flex gap-4 flex-wrap mb-10 u-reveal">
-              
+              <a
                 href="#projects"
                 className="inline-flex items-center gap-2 px-6 py-3 rounded-[var(--radius-md)] font-mono text-[13px] font-medium text-white transition-all hover:opacity-85 hover:-translate-y-0.5"
                 style={{ background: 'var(--gradient-brand)' }}
               >
                 {t('viewProjects')}
               </a>
-              
+              <a
                 href="#contact"
                 className="inline-flex items-center gap-2 px-5 py-3 rounded-[var(--radius-md)] font-mono text-[13px] font-medium transition-all hover:bg-[var(--badge-bg)] hover:border-[var(--color-blue)] hover:-translate-y-0.5"
                 style={{

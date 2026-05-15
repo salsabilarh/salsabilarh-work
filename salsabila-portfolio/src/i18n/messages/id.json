@@ -21,6 +21,13 @@
       "users": "Pengguna Konkuren"
     }
   },
+  "education": {
+    "label": "Latar Belakang Akademik",
+    "title": "Pendidikan",
+    "degreeLabel": "Gelar",
+    "degreeName": "S1 Teknik Komputer",
+    "thesis": "Skripsi: \"Sistem Pemantauan Perkembangan Akademik Siswa di SDIT Darussalam 01 Batam: Pengembangan Backend\". Mata kuliah: Switching & Routing, Keamanan Jaringan, Sistem Basis Data, Sistem Operasi Real-Time, Rekayasa Perangkat Lunak, OOP."
+  },
   "theme": {
     "light": "Terang",
     "dark": "Gelap"
