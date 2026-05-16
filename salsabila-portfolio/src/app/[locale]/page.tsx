@@ -13,6 +13,13 @@ import { ScrollProgress }     from '@/components/ui/ScrollProgress';
 export default function Home() {
   return (
     <>
+      <a
+        href="#hero"
+        className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-[9999] focus:px-4 focus:py-2 focus:rounded font-mono text-sm text-white"
+        style={{ background: 'var(--gradient-brand)' }}
+      >
+        Skip to content
+      </a>
       <ScrollProgress />
       <Navbar />
       <main>

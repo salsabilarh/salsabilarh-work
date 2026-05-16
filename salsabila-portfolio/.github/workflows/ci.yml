@@ -54,5 +54,5 @@ jobs:
         run: npm run build
 
       # Step 7: Jalankan tests (aktifkan di Sprint 2)
-      # - name: Run tests
-      #   run: npm test -- --coverage
+      - name: Run tests with coverage
+        run: npm test -- --coverage --passWithNoTests

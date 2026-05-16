@@ -101,3 +101,15 @@
   -webkit-text-fill-color: transparent;
   background-clip: text;
 }
+
+/* Tambahkan di globals.css — accessibility focus styles */
+:focus-visible {
+  outline: 2px solid var(--color-blue);
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+
+/* Remove default outline di browser tapi tetap accessible */
+:focus:not(:focus-visible) {
+  outline: none;
+}
