@@ -19,3 +19,85 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* Tambahkan di bawah @tailwind utilities di globals.css */
+
+/* ── Section label utility ─────────────────────────── */
+.u-section-label {
+  font-family: var(--font-display);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  color: var(--text-link);
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 8px;
+}
+.u-section-label::before {
+  content: '';
+  display: block;
+  width: 32px;
+  height: 1px;
+  background: var(--gradient-brand);
+  flex-shrink: 0;
+}
+
+.u-section-title {
+  font-size: clamp(26px, 4vw, 38px);
+  font-weight: 400;
+  color: var(--text-primary);
+  margin-bottom: 8px;
+}
+
+.u-section-desc {
+  font-size: 15.5px;
+  color: var(--text-secondary);
+  max-width: 580px;
+  line-height: 1.75;
+  margin-bottom: 8px;
+}
+
+/* ── Reveal animations ──────────────────────────────── */
+.u-reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition:
+    opacity  0.55s cubic-bezier(0.4, 0, 0.2, 1),
+    transform 0.55s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.u-reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.u-reveal-left {
+  opacity: 0;
+  transform: translateX(-16px);
+  transition:
+    opacity  0.5s cubic-bezier(0.4, 0, 0.2, 1),
+    transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.u-reveal-left.is-visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* ── Respect prefers-reduced-motion ────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  .u-reveal,
+  .u-reveal-left {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
+
+/* ── Gradient text utility ──────────────────────────── */
+.u-gradient-text {
+  background: var(--gradient-brand);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}

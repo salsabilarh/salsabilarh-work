@@ -68,7 +68,7 @@ export function useTypewriter() {
   const charIdxRef = useRef(0);
   const lineIdxRef = useRef(0);
   const phaseRef   = useRef<Phase>('typing');
-  const timerRef   = useRef<ReturnType<typeof setTimeout>>();
+  const timerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   useEffect(() => {
     function tick() {
@@ -114,7 +114,11 @@ export function useTypewriter() {
     }
 
     timerRef.current = setTimeout(tick, 900);
-    return () => clearTimeout(timerRef.current);
+    return () => {
+        if (timerRef.current !== null) {
+            clearTimeout(timerRef.current);
+        }
+    };
   }, []);
 
   return { cmdText, outputLines };

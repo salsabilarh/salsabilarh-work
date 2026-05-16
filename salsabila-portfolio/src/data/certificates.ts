@@ -1,2 +1,20 @@
+// src/data/certificates.ts
 import type { Certificate } from './index';
-export const certificates: Certificate[] = [];
+
+export const certificates: Certificate[] = [
+  { id: 'be-expert',    category: 'backend',    icon: '🥇', titleEn: 'Menjadi Back-End Developer Expert dengan JavaScript', titleId: 'Menjadi Back-End Developer Expert dengan JavaScript', issuer: 'Dicoding Indonesia', date: 'Jan 2026', url: 'https://drive.google.com/open?id=1cpr3KgPQW6isVV2srnXR2OWhUixcVa4y' },
+  { id: 'be-fundamental', category: 'backend',  icon: '📜', titleEn: 'Belajar Fundamental Aplikasi Back-End dengan JavaScript', titleId: 'Belajar Fundamental Aplikasi Back-End dengan JavaScript', issuer: 'Dicoding Indonesia', date: 'Sep 2025', url: 'https://drive.google.com/open?id=1U0x29rgerXmsCr6oRTSOfiNWQhYjd7e8' },
+  { id: 'solid',        category: 'backend',    icon: '🧩', titleEn: 'Belajar Prinsip Pemrograman SOLID', titleId: 'Belajar Prinsip Pemrograman SOLID', issuer: 'Dicoding Indonesia', date: 'Apr 2024', url: 'https://drive.google.com/open?id=1g_WiGvJ5HnZnOLWH1NiMCma7ojrPayNL' },
+  { id: 'aws-arch',     category: 'cloud',      icon: '🏗️', titleEn: 'Architecting on AWS', titleId: 'Architecting on AWS', issuer: 'Dicoding Indonesia', date: 'Sep 2025', url: 'https://drive.google.com/open?id=1lGNTm13RX-gKpOTk1tcF1MUmYk2V4DSD' },
+  { id: 'aws-genai',    category: 'cloud',      icon: '🤖', titleEn: 'Belajar Dasar Cloud dan Gen AI di AWS', titleId: 'Belajar Dasar Cloud dan Gen AI di AWS', issuer: 'Dicoding Indonesia × AWS', date: 'Jan 2026', url: 'https://drive.google.com/open?id=1bghz-uUcUrSHAFrCiD4eMXx2REPkTI1t' },
+  { id: 'git',          category: 'cloud',      icon: '🔀', titleEn: 'Belajar Dasar Git dengan GitHub', titleId: 'Belajar Dasar Git dengan GitHub', issuer: 'Dicoding Indonesia', date: 'Feb 2024', url: 'https://drive.google.com/open?id=1wWvr5iv1I4u22Ijw3e5twH7PxbsHJxG0' },
+  { id: 'db-found',     category: 'database',   icon: '📊', titleEn: 'Database Foundations', titleId: 'Database Foundations', issuer: 'Oracle Academy', date: 'Jun 2023', url: 'https://drive.google.com/open?id=1VuyhXunHmyr4GKaUla_BRxdTHHBpKwz9' },
+  { id: 'db-design',    category: 'database',   icon: '📐', titleEn: 'Database Design', titleId: 'Database Design', issuer: 'Oracle Academy', date: 'May 2023', url: 'https://drive.google.com/open?id=11kWSDQLJQrwEoWX_oqrnGTcUHqPGxKSd' },
+  { id: 'sql',          category: 'database',   icon: '💾', titleEn: 'Belajar Dasar Structured Query Language (SQL)', titleId: 'Belajar Dasar SQL', issuer: 'Dicoding Indonesia', date: 'Oct 2023', url: 'https://drive.google.com/open?id=1nVGxH81FeHLL7NXISLWe5AEAgy6f5IhN' },
+  { id: 'js-dasar',     category: 'web',        icon: '📜', titleEn: 'Belajar Dasar Pemrograman JavaScript', titleId: 'Belajar Dasar Pemrograman JavaScript', issuer: 'Dicoding Indonesia', date: 'Jan 2026', url: 'https://drive.google.com/open?id=1jxS8swKlP49OfLEkIHjnHDShTQ3aj_Nl' },
+  { id: 'web-dev',      category: 'web',        icon: '🎓', titleEn: 'Intermediate Junior Web Developer', titleId: 'Intermediate Junior Web Developer', issuer: 'Pusat Pengembangan Talenta Digital', date: 'Sep 2025', url: 'https://drive.google.com/open?id=1VOq4sSwsjG-Ctn4HXwiGozm52qXB7rmK' },
+  { id: 'ccna',         category: 'networking', icon: '🌐', titleEn: 'CCNAv7: Switching, Routing, and Wireless Essentials', titleId: 'CCNAv7: Switching, Routing, and Wireless Essentials', issuer: 'Cisco Networking Academy', date: 'Jul 2023', url: 'https://drive.google.com/open?id=1lySoKQPgo98R_NDPBXhU2PWRyLFtHNWy' },
+  { id: 'iot',          category: 'networking', icon: '📡', titleEn: 'Introduction to IoT', titleId: 'Introduction to IoT', issuer: 'Cisco Networking Academy', date: 'Aug 2022', url: 'https://drive.google.com/open?id=1LfvZBPIg2qLbQzOfKURdy4qHPMufgVCC' },
+  { id: 'mobile',       category: 'mobile',     icon: '🚀', titleEn: 'Mobile Development Learning Path', titleId: 'Mobile Development Learning Path', issuer: 'Bangkit — Google, GoTo, Traveloka', date: 'Jul 2024', url: 'https://drive.google.com/open?id=1ZxX5TIVhDTW3-lOz77K24bAl8n8jJJFS' },
+  { id: 'pm',           category: 'soft',       icon: '📋', titleEn: 'Belajar Dasar Manajemen Proyek', titleId: 'Belajar Dasar Manajemen Proyek', issuer: 'Dicoding Indonesia', date: 'Oct 2023', url: 'https://drive.google.com/open?id=1930SEkoIidPLZXI_xapiZZMhnkK8JEH7' },
+];

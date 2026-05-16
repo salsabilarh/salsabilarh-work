@@ -28,6 +28,45 @@
     "degreeName": "S1 Teknik Komputer",
     "thesis": "Skripsi: \"Sistem Pemantauan Perkembangan Akademik Siswa di SDIT Darussalam 01 Batam: Pengembangan Backend\". Mata kuliah: Switching & Routing, Keamanan Jaringan, Sistem Basis Data, Sistem Operasi Real-Time, Rekayasa Perangkat Lunak, OOP."
   },
+  "techStack": {
+    "label": "Keahlian Teknis",
+    "title": "Teknologi yang Saya Kuasai",
+    "desc": "Terbukti dalam lebih dari 12 proyek produksi. Saya memilih perangkat yang memberikan keandalan, kinerja, dan kemudahan pemeliharaan dalam skala besar.",
+    "categories": {
+      "backend": "Backend & API",
+      "frontend": "Frontend",
+      "database": "Basis Data",
+      "security": "Keamanan & Autentikasi",
+      "testing": "Pengujian & QA",
+      "devops": "DevOps & Cloud"
+    }
+  },
+  "experience": {
+    "label": "Riwayat Karier",
+    "title": "Pengalaman Profesional",
+    "desc": "Dari magang hingga juara kompetisi — setiap peran telah mengasah kemampuan saya untuk memberikan hasil di bawah tekanan."
+  },
+  "certificates": {
+    "label": "Pembelajaran Berkelanjutan",
+    "title": "Sertifikat Kursus",
+    "desc": "Pembelajaran terstruktur di bidang rekayasa backend, arsitektur cloud, basis data, dan pengembangan web."
+  },
+  "projects": {
+    "label": "Karya Pilihan",
+    "title": "Proyek",
+    "desc": "Setiap proyek merupakan solusi permasalahan dunia nyata yang dirancang dengan pilihan arsitektur yang matang."
+  },
+  "contact": {
+    "label": "Mari Terhubung",
+    "title": "Mari Bangun Sesuatu Bersama",
+    "desc": "Saat ini saya terbuka untuk peluang sebagai Fullstack Developer maupun Backend Developer.",
+    "formTitle": "Kirim Pesan",
+    "yourName": "Nama Anda",
+    "company": "Perusahaan",
+    "roleOpportunity": "Posisi / Peluang",
+    "message": "Pesan",
+    "sendMessage": "Kirim Pesan →"
+  },
   "theme": {
     "light": "Terang",
     "dark": "Gelap"
