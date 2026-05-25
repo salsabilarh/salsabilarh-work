@@ -3355,8 +3355,7 @@
         <a href="cv_salsabila rafifah handifa.pdf" target="_blank" rel="noopener" class="contact-quick-btn contact-quick-btn--primary">
           <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
           <span class="lang-en">Download CV</span><span class="lang-id">Unduh CV</span>
-        </a>
-        <a href="https://salsabilarh-work.vercel.app" target="_blank" rel="noopener" class="contact-quick-btn">🌐 <span class="lang-en">Portfolio</span><span class="lang-id">Portofolio</span></a>
+        </a>  
       </div>
 
       <div class="contact-grid u-reveal">
@@ -3379,10 +3378,12 @@
           </a>
         </div>
 
-        <!-- <div class="contact-form">
+        <div class="contact-form">
           <div class="contact-form__top"></div>
           <div class="contact-form__inner">
             <p class="contact-form__heading"><span class="lang-en">Send a Message</span><span class="lang-id">Kirim Pesan</span></p>
+            <!-- Tambahkan hidden input access_key -->
+            <input type="hidden" name="access_key" value="93e3bea4-52cf-4dc6-85b1-34b392f3d999">
             <div class="form-grid">
               <div class="form-row"><label for="form-name"><span class="lang-en">Your Name</span><span class="lang-id">Nama Anda</span></label><input type="text" id="form-name" autocomplete="name" /></div>
               <div class="form-row"><label for="form-company"><span class="lang-en">Company</span><span class="lang-id">Perusahaan</span></label><input type="text" id="form-company" autocomplete="organization" /></div>
@@ -3390,16 +3391,13 @@
             <div class="form-row"><label for="form-email">Email</label><input type="email" id="form-email" autocomplete="email" /></div>
             <div class="form-row"><label for="form-position"><span class="lang-en">Role / Opportunity</span><span class="lang-id">Posisi / Peluang</span></label><input type="text" id="form-position" /></div>
             <div class="form-row"><label for="form-message"><span class="lang-en">Message</span><span class="lang-id">Pesan</span></label><textarea id="form-message"></textarea></div>
-            <button class="btn btn--primary" style="width:100%;justify-content:center;margin-top:var(--s2)" onclick="contactForm.submit()">
-              <span class="lang-en">Send Message →</span><span class="lang-id">Kirim Pesan →</span>
+            <!-- Hapus onclick, biarkan kosong atau tambahkan class -->
+            <button class="btn btn--primary" style="width:100%;justify-content:center;margin-top:var(--s2)">
+              <span class="lang-en">Send Message →</span>
+              <span class="lang-id">Kirim Pesan →</span>
             </button>
-            <div class="calendly-nudge">
-              <span>📅</span>
-              <span class="lang-en">Prefer a quick call? <a href="https://calendly.com/salsabilarafifahh" target="_blank" rel="noopener">Schedule a 15-minute intro on Calendly →</a></span>
-              <span class="lang-id">Lebih suka panggilan singkat? <a href="https://calendly.com/salsabilarafifahh" target="_blank" rel="noopener">Jadwalkan intro 15 menit via Calendly →</a></span>
-            </div>
           </div>
-        </div> -->
+        </div>
       </div>
     </div>
   </section>
@@ -3717,6 +3715,98 @@
           }
         });
       }
+
+      // ========== CONTACT FORM WITH WEB3FORMS ==========
+      function initContactForm() {
+        const submitBtn = document.querySelector('.contact-form .btn--primary');
+        if (!submitBtn) return;
+
+        // Ambil elemen input
+        const nameInput = document.getElementById('form-name');
+        const companyInput = document.getElementById('form-company');
+        const emailInput = document.getElementById('form-email');
+        const positionInput = document.getElementById('form-position');
+        const messageInput = document.getElementById('form-message');
+
+        // Cek apakah hidden input access_key sudah ada, jika belum buat
+        let accessKeyInput = document.querySelector('.contact-form input[name="access_key"]');
+        if (!accessKeyInput) {
+          accessKeyInput = document.createElement('input');
+          accessKeyInput.type = 'hidden';
+          accessKeyInput.name = 'access_key';
+          accessKeyInput.value = '93e3bea4-52cf-4dc6-85b1-34b392f3d999';
+          submitBtn.closest('.contact-form__inner').appendChild(accessKeyInput);
+        }
+
+        // Fungsi kirim pesan
+        async function sendMessage(event) {
+          event.preventDefault();
+
+          // Validasi sederhana
+          if (!nameInput.value.trim() || !emailInput.value.trim() || !messageInput.value.trim()) {
+            showToast('Please fill in name, email, and message.');
+            return;
+          }
+
+          const formData = new FormData();
+          formData.append('name', nameInput.value.trim());
+          formData.append('email', emailInput.value.trim());
+          formData.append('message', messageInput.value.trim());
+          if (companyInput.value.trim()) formData.append('company', companyInput.value.trim());
+          if (positionInput.value.trim()) formData.append('position', positionInput.value.trim());
+          formData.append('access_key', '93e3bea4-52cf-4dc6-85b1-34b392f3d999');
+
+          const originalText = submitBtn.textContent;
+          submitBtn.textContent = 'Sending...';
+          submitBtn.disabled = true;
+
+          try {
+            const response = await fetch('https://api.web3forms.com/submit', {
+              method: 'POST',
+              body: formData
+            });
+            const data = await response.json();
+            if (response.ok && data.success) {
+              showToast('Success! Your message has been sent.');
+              // Reset form
+              nameInput.value = '';
+              companyInput.value = '';
+              emailInput.value = '';
+              positionInput.value = '';
+              messageInput.value = '';
+            } else {
+              showToast('Error: ' + (data.message || 'Something went wrong.'));
+            }
+          } catch (error) {
+            showToast('Network error. Please try again later.');
+          } finally {
+            submitBtn.textContent = originalText;
+            submitBtn.disabled = false;
+          }
+        }
+
+        // Hapus onclick attribute jika ada, lalu pasang event listener
+        submitBtn.removeAttribute('onclick');
+        submitBtn.addEventListener('click', sendMessage);
+      }
+
+      // Panggil initContactForm saat DOM ready
+      document.addEventListener('DOMContentLoaded', function() {
+        // ... kode inisialisasi lain yang sudah ada (theme, locale, dll)
+        initContactForm();  // tambahkan baris ini
+      });
+
+      // ========== CLIPBOARD COPY ==========
+      window.clipboard = {
+        copy(text, event) {
+          if (event) event.preventDefault();
+          navigator.clipboard.writeText(text).then(() => {
+            if (window.showToast) showToast(`Copied: ${text}`);
+          }).catch(() => {
+            if (window.showToast) showToast('Failed to copy. Please select manually.');
+          });
+        }
+      };
 
       // ---------- Initialize everything ----------
       document.addEventListener('DOMContentLoaded', () => {
